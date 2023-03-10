@@ -1,7 +1,8 @@
 from flask import (
     Flask,
-    jsonify
+    render_template
 )
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -10,10 +11,7 @@ def create_app(test_config=None):
     # Simple route
     @app.route('/')
     def hello_world():
-        return jsonify({
-            "status": "success",
-            "message": "Hello World!"
-        })
+        return render_template('home.html')
 
     return app
 
